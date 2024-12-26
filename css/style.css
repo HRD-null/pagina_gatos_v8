@@ -1,0 +1,184 @@
+/* Importa la fuente Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* Reset y estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Estructura general */
+.container {
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "content"
+        "footer";
+    grid-template-rows: auto 1fr auto;
+    grid-gap: 20px;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+header {
+    grid-area: header;
+    background-color: #ffeeba;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 2px solid #f0ad4e;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #444;
+}
+
+/* Navegación */
+.horizontal-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    background-color: #fff;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.horizontal-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+.horizontal-menu ul li a {
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #444;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.horizontal-menu ul li a:hover {
+    background-color: #f0ad4e;
+    color: #fff;
+    border-bottom: 3px solid #f0ad4e;
+}
+
+.horizontal-menu ul li a.active {
+    background-color: #f0ad4e;
+    color: #fff;
+    border-bottom: 3px solid #f0ad4e;
+}
+
+/* Contenido principal */
+main {
+    grid-area: content;
+    padding: 20px;
+}
+
+/* Secciones con flexbox */
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+article {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+article img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+article h3 {
+    font-size: 1.5rem;
+    color: #444;
+}
+
+article p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* Footer */
+footer {
+    grid-area: footer;
+    background-color: #ffeeba;
+    padding: 1rem;
+    text-align: center;
+    border-top: 2px solid #f0ad4e;
+}
+
+footer p {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+footer .social-links a img {
+    width: 40px; /* Ajusta el ancho de las imágenes */
+    height: auto; /* Mantén la proporción */
+    margin-right: 10px; /* Espaciado entre los logos */
+    transition: transform 0.3s ease;
+}
+
+footer .social-links a img:hover {
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el cursor */
+}
+
+/* Responsividad */
+@media (min-width: 768px) {
+    .container {
+        grid-template-areas: 
+            "header header"
+            "content sidebar"
+            "footer footer";
+        grid-template-columns: 3fr 1fr;
+    }
+
+    .horizontal-menu {
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    section {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    article {
+        flex: 1 1 calc(45% - 10px); /* Ocupa el 45% del ancho en pantallas grandes */
+        max-width: calc(45% - 10px);
+    }
+}
+
+@media (max-width: 768px) {
+    .horizontal-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    article {
+        flex: 1 1 100%; /* Ocupa el ancho completo en pantallas pequeñas */
+    }
+}
