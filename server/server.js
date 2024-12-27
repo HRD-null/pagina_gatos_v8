@@ -37,3 +37,30 @@ app.post("/guardarCorreo", (req, res) => {
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
+
+app.get('/contarCorreos', (req, res) => {
+    // Inspección de la ruta base
+    console.log("El valor de __dirname es:", __dirname);
+
+    // Generar el path del archivo
+    const filePath = path.resolve(__dirname, "./txt/subs.txt");
+    console.log("Path resuelto para subs.txt:", filePath);
+
+    // Verificar si el archivo existe
+    if (!fs.existsSync(filePath)) {
+        console.error("Archivo no encontrado en la ruta:", filePath);
+        return res.status(404).json({ error: 'Archivo no encontrado.' });
+    }
+
+    // Leer el contenido del archivo
+    fs.readFile(filePath, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Error al leer el archivo:', err);
+            return res.status(500).json({ error: 'No se pudo leer el archivo.' });
+        }
+
+        const correos = data.split('\n').filter(line => line.trim() !== ''); // Filtra líneas no vacías
+        console.log("Número de correos encontrados:", correos.length);
+        res.json({ total: correos.length });
+    });
+});

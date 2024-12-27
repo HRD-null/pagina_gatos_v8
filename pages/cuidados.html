@@ -3,25 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuidados - Todo sobre Gatos</title>
+    <link rel="stylesheet" href="../bs_css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <title>Cuidados - Todo sobre Gatos</title>
 </head>
 <body>
     <header>
         <h1>Todos los cuidados para tu Gato</h1>
-        <nav class="horizontal-menu">
-            <ul>
-                <li><a href="../index.html">Inicio</a></li>
-                <li><a href="./cuidados.html" class="active">Cuidados</a></li>
-                <li><a href="./fun_facts.html">Datos Curiosos</a></li>
-                <li><a href="./historias.html">Historias</a></li>
-                <li><a href="./leyendas.html">Leyendas</a></li>
-                <li><a href="./recomendaciones_primerizos.html">Recomendaciones</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a href="../index.html" class="nav-link">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./cuidados.html" class="nav-link active">Cuidados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./fun_facts.html" class="nav-link">Datos Curiosos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./historias.html" class="nav-link">Historias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./leyendas.html" class="nav-link">Leyendas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./recomendaciones_primerizos.html" class="nav-link">Recomendaciones</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
     <main>
-        <!-- Sección de cuidados -->
+        <!-- Sección de Cuidados -->
         <section class="cuidados">
             <article class="cuidados-item">
                 <img src="../img/Imagen3.png" alt="Cuidados Gato 1" class="cuidados-image">
@@ -111,5 +131,6 @@
         </div>
         <p>&copy; 2024 Todo sobre Gatos. Todos los derechos reservados.</p>
     </footer>
+    <script src="../bs_js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
