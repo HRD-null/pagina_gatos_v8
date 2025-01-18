@@ -3,6 +3,9 @@ const correosRegistrados = [];
 
 // Función para solicitar el nombre del usuario
 function solicitarNombre() {
+    const saludoElement = document.getElementById("saludo");
+    saludoElement.textContent = "¡Hola! 🐱 Bienvenido al curioso mundo de los gatos."; // Mostrar saludo predeterminado
+
     const usuarioGuardado = localStorage.getItem("usuario"); // Verifica si el usuario ya está guardado
     if (usuarioGuardado) {
         const usuario = JSON.parse(usuarioGuardado);
@@ -101,8 +104,8 @@ function enviarCorreoAlServidor(email) {
 // Función para mostrar todos los correos registrados temporalmente en consola
 function mostrarCorreosRegistrados() {
     console.log("Lista de correos registrados temporalmente:");
-    correosRegistrados.forEach((correo, index) => {
-        console.log(`${index + 1}. ${correo}`);
+    correosRegistrados.forEach((correo, inicio) => {
+        console.log(`${inicio + 1}. ${correo}`);
     });
 }
 
