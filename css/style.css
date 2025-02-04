@@ -83,7 +83,8 @@ html, body {
 /* HEADER */
 header {
     background-color: var(--primary-color);
-    padding: 1rem;
+    padding: 2rem 1rem; /* Aumenta el espacio interno */
+    min-height: 100px; /* Ajusta la altura mínima */
     text-align: center;
     border-bottom: 2px solid var(--secondary-color);
     position: relative;
@@ -138,6 +139,7 @@ header h1 {
 .navbar {
     background-color: #fff;
     border-bottom: 2px solid #f0ad4e;
+    padding: 1 rem 0;
 }
 
 .navbar-nav {
@@ -147,6 +149,7 @@ header h1 {
 
 .navbar-nav .nav-item {
     list-style: none;
+    padding: 25px 85px; 
 }
 
 .navbar-nav .nav-link {
