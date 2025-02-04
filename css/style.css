@@ -1,5 +1,10 @@
-/* Importa la fuente Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+/* Variables de colores */
+:root {
+    --primary-color: #ffeeba;
+    --secondary-color: #f0ad4e;
+    --text-color: #444;
+    --link-hover-color: #e89b3d;
+}
 
 /* Reset básico */
 * {
@@ -9,25 +14,16 @@
 }
 
 html, body {
-    height: 100%; /* Asegura que la altura de la página sea consistente */
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: 'Poppins', Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--primary-color);
 }
 
-ul, ol {
-    list-style: none; /* Elimina las viñetas de las listas */
-}
-
-img {
-    max-width: 100%; /* Evita que las imágenes excedan su contenedor */
-    height: auto;
-}
-
-a {
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    color: inherit; /* Hereda el color del texto circundante */
-}
-
-/* Hero Section */
-.hero {
+  /* Hero Section */
+  .hero {
     background-color: #ffeeba; /* Fondo amarillo/naranja */
     color: #444;
     padding: 4rem 2rem;
@@ -83,46 +79,28 @@ a {
     transform: scale(1.1);
 }
 
-body {
-    font-family: 'Poppins', Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #f9f9f9;
-    color: #333;
-}
 
-/* Estructura general */
-.container {
-    width: 95%;
-    margin: 0 auto;
-    padding: 80px 0;
-}
-
-/* Header */
+/* HEADER */
 header {
-    background-color: #ffeeba;
+    background-color: var(--primary-color);
     padding: 1rem;
-    border-bottom: 2px solid #f0ad4e;
-    position: relative; /* Permite posicionar elementos con absolute */
     text-align: center;
+    border-bottom: 2px solid var(--secondary-color);
+    position: relative;
 }
 
 header h1 {
     font-size: 2rem;
-    color: #444;
+    color: var(--text-color);
 }
+
+/* LOGO */
 
 .logo-container {
     position: absolute;
     top: 50%;
     left: 0;
     transform: translate(120%, -65%); /* Centra el logo en X y Y */
-}
-
-.logo-container-sub {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(180%, -80%); /* Centra el logo en X y Y */
 }
 
 .logo {
@@ -137,6 +115,13 @@ header h1 {
 }
 
 
+.logo-container-sub {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(180%, -80%); /* Centra el logo en X y Y */
+}
+
 .logo-sub {
     width: 120px;
     height: 120px;
@@ -147,7 +132,6 @@ header h1 {
 .logo-sub:hover {
     transform: scale(1.1);
 }
-
 
 
 /* Navegación */
@@ -199,88 +183,537 @@ header h1 {
     color: #333;
 }
 
-/* Contenido principal */
-main {
-    margin: 0 auto;
+/* SECCIÓN CUIDADOS */
+.cuidados {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-}
-
-/* Secciones con flexbox */
-section {
+    gap: 2rem;
+    padding: 2rem 5%;
+  }
+  
+  .cuidados-item {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 20px;
-}
-
-article {
-    width: 95%;
-    background: #fff;
-    border: 1px solid #ddd;
+    width: 100%;
+    max-width: 1600px;
+    background-color: #fff;
     border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-article img {
-    max-width: 20%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+  
+  .cuidados-item:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+  
+  .cuidados-image {
+    width: 35%;
     height: auto;
     border-radius: 10px;
-}
-
-article h3 {
-    font-size: 1.5rem;
-    color: #444;
-}
-
-article p {
+    object-fit: cover;
+  }
+  
+  .cuidados-content {
+    width: 60%;
+  }
+  
+  .cuidados-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cuidados-content p {
     font-size: 1rem;
-    color: #666;
     text-align: justify;
+    line-height: 1.6;
+  }
+
+@media (max-width: 992px) {
+    .cuidados-item {
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+    }
+  
+    .cuidados-item:nth-child(even) {
+      flex-direction: column;
+    }
+  
+    .cuidados-image {
+      width: 100%;
+      max-height: 250px;
+    }
+  
+    .cuidados-content {
+      width: 100%;
+    }
+  }
+
+/* SECCIÓN DATOS CURIOSOS */
+/* Ajuste del contenedor principal */
+.funfacts-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 80vh; /* Mantiene centrado incluso con poco contenido */
 }
 
-/* Footer */
-footer {
-    background-color: #ffeeba;
-    padding: 1rem;
+/* Tarjeta centrada */
+.funfact-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    align-items: center; /* Centra el título */
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centra contenido dentro de la tarjeta */
+}
+
+.funfact-image {
+    width: 25%;
+    height: 25%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Contenedor del contenido */
+.funfact-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el título */
+    text-align: left; /* Asegura que el texto del párrafo esté alineado a la izquierda */
+    width: 90%;
+    margin: 0 auto;
+}
+
+/* Título centrado */
+.funfact-content h3 {
     text-align: center;
-    border-top: 2px solid #f0ad4e;
+    width: 100%;
+
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
 
-footer p {
-    font-size: 0.9rem;
-    color: #555;
+
+.funfact-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.btn-funfact {
+    margin-top: 1rem;
+    padding: 10px 15px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-funfact:hover {
+    background-color: var(--link-hover-color);
+}
+
+/* ANIMACIÓN DE TRANSICIÓN PARA FUN FACTS */
+.slide-out-right {
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide-in-right {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .funfact-card {
+        max-width: 95%;
+    }
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--primary-color);
+    padding: 2rem 1rem;
+    text-align: center;
+    border-top: 2px solid var(--secondary-color);
+}
+
+footer .social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 footer .social-links a img {
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
+    width: 40px;
+    height: 40px;
     transition: transform 0.2s ease;
 }
 
 footer .social-links a img:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .funfact-card {
+        width: 95%;
+    }
+
+    .funfact-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .btn-funfact {
+        width: 100%;
+    }
+
+}
+
+ /* SECCIONES PRINCIPALES */
+ .sections {
+    display: flex;
+    width: 100vw;
+    height: 65vh; /* Toda la altura de la pantalla */
+    overflow: hidden;
+  }
+  
+  .section-box {
+    width: 20vw; /* Cada sección ocupa el 20% del ancho */
+    height: 100vh; /* Toda la altura de la pantalla */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    padding: 1.5rem;
+    background-color: rgba(255, 238, 186, 0.9);
+    border-right: 2px solid var(--secondary-color);
+    transition: transform 0.3s ease;
+  }
+  
+  .section-box:last-child {
+    border-right: none; /* Evita un borde extra al final */
+  }
+  
+  .section-box:hover {
+    transform: scale(1.05);
+  }
+  
+  .section-box img {
+    width: 100%;
+    height: 40vh; /* La imagen ocupa casi la mitad del alto */
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  .section-box h3 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-top: 1rem;
+  }
+  
+  .section-box p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin: 1rem 0;
+    padding: 0 1rem;
+  }
+  
+  .section-box .btn-ver-mas {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 0.7rem 1.2rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .section-box .btn-ver-mas:hover {
+    background-color: var(--link-hover-color);
+  }
+  
+
+  /* Ajuste automático del tamaño de la página */
+main {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* SECCIÓN HISTORIAS */
+.historias {
+    display: flex;
+    flex-direction: column; /* Asegura que las historias se apilen verticalmente */
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 5%;
+}
+
+/* Cada historia en columna */
+.historias-item {
+    display: flex;
+    flex-direction: column; /* Apilar imagen arriba y texto abajo */
+    align-items: center;
+    width: 100%;
+    max-width: 900px; /* Ajusta el ancho para no ocupar toda la pantalla */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    gap: 1rem;
+    text-align: center;
+}
+
+/* Imágenes ocupan toda la parte superior */
+.historias-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Contenido de la historia */
+.historias-content {
+    width: 100%;
+    padding: 1rem;
+    text-align: left; /* Alinea el texto de la historia a la izquierda */
+}
+
+/* Título de la historia (centrado) */
+.historias-content h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Texto de la historia (izquierda) */
+.historias-content p {
+    text-align: left;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+/* SECCIÓN LEYENDAS */
+.leyendas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 80vh;
+}
+
+.leyendas-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 900px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.leyendas-image {
+    width: 100%;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.leyendas-content {
+    width: 90%;
+    text-align: left;
+}
+
+.leyendas-content h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.leyendas-content p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.btn-leyendas {
+    margin-top: 1rem;
+    padding: 10px 15px;
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-leyendas:hover {
+    background-color: var(--link-hover-color);
+}
+
+/* Animación de transición */
+.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* ANIMACIÓN DE TRANSICIÓN PARA LEYENDAS */
+.slide-out {
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.slide-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 /* Responsividad */
-@media (min-width: 1920px) {
-    section {
-        flex-direction: column;
-    }
-
-    .navbar-nav .nav-link.active {
-        background-color: #f0ad4e !important;
-        color: #fff !important;
-        border-radius: 5px;
+@media (max-width: 768px) {
+    .leyendas-card {
+        max-width: 95%;
     }
 }
+
+
+/* SECCIÓN RECOMENDACIONES */
+.recomendaciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 5%;
+}
+
+.recomendaciones-item {
+    display: flex;
+    flex-direction: row; /* Mantiene siempre la imagen a la derecha */
+    align-items: center;
+    width: 100%;
+    max-width: 1600px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    gap: 2rem;
+}
+
+/* Asegura que el contenido se alinee correctamente */
+.recomendaciones-content {
+    width: 60%;
+}
+
+/* Imagen alineada a la derecha */
+.recomendaciones-image-container {
+    width: 35%;
+    display: flex;
+    justify-content: flex-end; /* Asegura que la imagen esté bien alineada */
+}
+
+.recomendaciones-image {
+    width: 30%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Estilos para el texto */
+.recomendaciones-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.recomendaciones-content p {
+    font-size: 1rem;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .recomendaciones-item {
+        flex-direction: column-reverse; /* En móviles, imagen abajo */
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .recomendaciones-image-container {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .recomendaciones-image {
+        width: 100%;
+        max-height: 250px;
+    }
+
+    .recomendaciones-content {
+        width: 100%;
+    }
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+    .recomendaciones-item {
+        flex-direction: column-reverse; /* En móviles, imagen abajo */
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .recomendaciones-image {
+        width: 100%;
+        max-height: 250px;
+    }
+
+    .recomendaciones-content {
+        width: 100%;
+    }
+}
+
 
 @media (max-width: 992px) {
 
@@ -292,8 +725,8 @@ footer .social-links a img:hover {
     }
     
     .logo {
-        width: 80px;
-        height: 80px;
+        width: 0px;
+        height: 0px;
         transition: transform 3s ease;
         float: left;
     }
@@ -369,12 +802,93 @@ footer .social-links a img:hover {
 
     .hero-logo {
         position: absolute;
-        right: 1rem;
-        bottom: 15rem;
+        right: -1.5rem;
+        bottom: 11rem;
         max-width: 50%;
         opacity: 1;
         transition: transform 2s ease;
     }
     
 
+}
+
+@media (max-width: 992px) {
+    .sections {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        width: 100vw;
+        height: auto; /* Ajustar altura automática */
+        white-space: nowrap;
+        padding: 1rem 0;
+    }
+
+    .section-box {
+        flex: 0 0 90vw; /* Ajuste del ancho de cada sección */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: center;
+        padding: 1.5rem;
+        background-color: rgba(255, 238, 186, 0.9);
+        border-right: 2px solid var(--secondary-color);
+        transition: transform 0.3s ease;
+        scroll-snap-align: start;
+        height: auto; /* Permitir que crezca según el contenido */
+    }
+
+    .section-box img {
+        width: 100%;
+        height: auto; /* Ajuste de imagen flexible */
+        max-height: 200px; /* Evita que las imágenes sean demasiado grandes */
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .section-box h3 {
+        font-size: 1.5rem;
+        margin-top: 0.8rem;
+        word-wrap: break-word;
+        white-space: normal; /* Permite que el texto se ajuste */
+    }
+
+    .section-box p {
+        font-size: 1rem;
+        text-align: center;
+        margin: 0.5rem 0;
+        padding: 0 1rem;
+        max-width: 80%;
+        white-space: normal; /* Permite que el texto se divida correctamente */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .section-box .btn-ver-mas {
+        margin-top: 0.5rem;
+        background-color: var(--secondary-color);
+        color: #fff;
+        padding: 0.7rem 1.2rem;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .section-box .btn-ver-mas:hover {
+        background-color: var(--link-hover-color);
+    }
+
+    /* Ajuste del espaciado del contenedor */
+    .sections::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .sections::-webkit-scrollbar-thumb {
+        background: var(--secondary-color);
+        border-radius: 10px;
+    }
+
+    .sections::-webkit-scrollbar-track {
+        background: var(--primary-color);
+    }
 }
